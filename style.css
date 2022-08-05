@@ -1,0 +1,82 @@
+    body {
+        background-color: #222034;
+        color: #cbdbfc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        font-family: monospace;
+    }
+
+    #field {
+        display: flex;
+        gap: 56px;
+    }
+
+    #score {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #computer-choice, #player-choice {
+        border: 2px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #computer-choice img, #player-choice img {
+        width: 100px;
+        height: 100px;
+        animation: rotation 2s infinite linear;
+        object-fit: contain;
+
+    }
+    
+    @keyframes rotation {
+        from {
+            transform: rotate(359deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+      }
+      
+    img {
+        image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+        image-rendering: -moz-crisp-edges;          /* Firefox                        */
+        image-rendering: -o-crisp-edges;            /* Opera                          */
+        image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+        image-rendering: pixelated;                 /* Chrome                         */
+        image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+        -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+    }
+
+    #choice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #choices {
+        display: flex;
+        gap: 18px;
+    }
+
+    button {
+        background-color: #222034;
+        border: 2px solid black;
+    }
+
+    button:hover {
+        background-color: #3a3850;
+    }
+
+    #reset {
+        width: 262px;
+        color:#cbdbfc;
+        font-family: monospace;
+    }
+    
