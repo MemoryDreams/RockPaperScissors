@@ -32,18 +32,18 @@
     <div id="choice">
         <p>Make your choice</p>
         <div id="choices">
-            <button id="rock">
+            <button class="button" onclick="getPlayerChoice('rock')" id="rock">
                 <img src="pics/rock.png">
             </button>
-            <button id="paper">
+            <button class="button" onclick="getPlayerChoice('paper')" id="paper">
                 <img src="pics/paper.png">
             </button>
-            <button id="scissors">
+            <button class="button" onclick="getPlayerChoice('scissors')" id="scissors">
                 <img src="pics/scissors.png">
             </button>
         </div>
     </div>
-    <button id="reset">reset</button>
+    <button id="reset" onclick="reset()">reset</button>
 
 </body>
 </html>

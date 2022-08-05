@@ -27,20 +27,19 @@
         justify-content: center;
         width: 100px;
         height: 100px;
-    }
-
-    #compchoice, humanchoice{
-        min-width: 100px;
-        min-height: 100px;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     #compchoice {
         animation: rotation 2s infinite linear;
+        min-width: 95px;
+        min-height: 95px;
     }
 
     #humanchoice {
         animation: rotation 2s infinite linear;
+        min-width: 95px;
+        min-height: 95px;
     }
     
     @keyframes rotation {
@@ -76,6 +75,7 @@
     button {
         background-color: #222034;
         border: 2px solid black;
+        z-index: 10;
     }
 
     button:hover {
