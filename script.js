@@ -6,21 +6,6 @@ function getComputerChoice() {
     let choice;
     let i = Math.random();
     document.getElementById("compchoice").style.animation = "rotation 2s infinite linear";
-    let l = Math.random();
-    switch (true) {
-        case (l < 0.25):
-            setTimeout(20000);
-            break;
-        case ((l > 0.25) && (l < 0.5)):
-            setTimeout(35000);
-            break;
-        case ((l > 0.5) && (l < 0.75)):
-            setTimeout(55000);
-            break;
-        case (l > 0.75):
-            setTimeout(80000);
-            break;
-    }
     switch (true) {
         case (i < 0.33):
             choice = "rock";
@@ -66,10 +51,14 @@ function reset() {
     document.getElementById("rock").disabled = false;
     document.getElementById("paper").disabled = false;
     document.getElementById("scissors").disabled = false;
+    document.getElementById("result").innerText = "You may start";
     document.getElementById("humanchoice").src = "pics/favicon.png";
     document.getElementById("humanchoice").style.animation = "rotation 2s infinite linear";
     document.getElementById("compchoice").src = "pics/favicon.png";
     document.getElementById("compchoice").style.animation = "rotation 2s infinite linear";
+    PCscore = 0;
+    Humanscore = 0;
+    upScore();
 }
 
 function upScore() {
@@ -123,5 +112,8 @@ function theGame(compChoice, playerChoice) {
     }
     upScore();
     document.getElementById("reset").disabled = false;
+    document.getElementById("rock").disabled = false;
+    document.getElementById("paper").disabled = false;
+    document.getElementById("scissors").disabled = false;
     return result;
 }
