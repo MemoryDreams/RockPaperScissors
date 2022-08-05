@@ -1,3 +1,7 @@
+let pchoice;
+let PCscore = 0;
+let Humanscore = 0;
+
 function getComputerChoice() {
     let choice;
     let i = Math.random();
@@ -5,16 +9,16 @@ function getComputerChoice() {
     let l = Math.random();
     switch (true) {
         case (l < 0.25):
-            setTimeout(2000);
+            setTimeout(20000);
             break;
         case ((l > 0.25) && (l < 0.5)):
-            setTimeout(3500);
+            setTimeout(35000);
             break;
         case ((l > 0.5) && (l < 0.75)):
-            setTimeout(5500);
+            setTimeout(55000);
             break;
         case (l > 0.75):
-            setTimeout(8000);
+            setTimeout(80000);
             break;
     }
     switch (true) {
@@ -38,29 +42,24 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice(choice) {
+    document.getElementById("reset").disabled = true;
+    pchoice = choice;
     switch (choice) {
         case 'rock':
-            document.getElementById("rock").disabled = true;
-            document.getElementById("paper").disabled = true;
-            document.getElementById("scissors").disabled = true;
             document.getElementById("humanchoice").src = "pics/rock.png";
-            document.getElementById("humanchoice").style.animation = "nill";
             break;
         case 'paper':
-            document.getElementById("rock").disabled = true;
-            document.getElementById("paper").disabled = true;
-            document.getElementById("scissors").disabled = true;
             document.getElementById("humanchoice").src = "pics/paper.png";
-            document.getElementById("humanchoice").style.animation = "nill";
             break;
         case 'scissors':
-            document.getElementById("rock").disabled = true;
-            document.getElementById("paper").disabled = true;
-            document.getElementById("scissors").disabled = true;
             document.getElementById("humanchoice").src = "pics/scissors.png";
-            document.getElementById("humanchoice").style.animation = "nill";
             break;
     }
+    document.getElementById("humanchoice").style.animation = "nill";
+    document.getElementById("rock").disabled = true;
+    document.getElementById("paper").disabled = true;
+    document.getElementById("scissors").disabled = true;
+    theGame(getComputerChoice(), choice);
 };
 
 function reset() {
@@ -70,6 +69,11 @@ function reset() {
     document.getElementById("humanchoice").src = "pics/favicon.png";
     document.getElementById("humanchoice").style.animation = "rotation 2s infinite linear";
     document.getElementById("compchoice").src = "pics/favicon.png";
+    document.getElementById("compchoice").style.animation = "rotation 2s infinite linear";
+}
+
+function upScore() {
+    document.getElementById("scores").innerText = Humanscore + ":" + PCscore;
 }
 
 function theGame(compChoice, playerChoice) {
@@ -78,31 +82,46 @@ function theGame(compChoice, playerChoice) {
 
     if (playerChoice === compChoice) {
         result = "draw";
+        document.getElementById("result").innerText = "It's a draw!";
     } else 
     {
         switch (playerChoice) {
             case "rock":
                 if (compChoice === "scissors") {
                     result = "win";
+                    document.getElementById("result").innerText = "You win!";
+                    Humanscore++;
                 } else {
                     result = "lose";
+                    document.getElementById("result").innerText = "You lose!";
+                    PCscore++;
                 }
                 break;
             case "scissors":
                 if (compChoice === "paper") {
                     result = "win";
+                    document.getElementById("result").innerText = "You win!";
+                    Humanscore++;
                 } else {
                     result = "lose";
+                    document.getElementById("result").innerText = "You lose!"
+                    PCscore++;
                 }
                 break;
             case "paper":
                 if (compChoice === "rock") {
                     result = "win";
+                    document.getElementById("result").innerText = "You win!";
+                    Humanscore++;
                 } else {
                     result = "lose";
+                    document.getElementById("result").innerText = "You lose!"
+                    PCscore++;
                 }
                 break;
         }
     }
+    upScore();
+    document.getElementById("reset").disabled = false;
     return result;
 }
